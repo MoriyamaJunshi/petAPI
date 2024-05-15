@@ -30,9 +30,30 @@ public class PetController {
       public Pet getPetById(@PathVariable Long petId) {
     	return petService.getPetById;
     }
+    
     @PostMapping
     public void addPet(@RequestBody Pet pet) {
     	petService.addPet(pet);
     }
+    
+    @PutMapping("/{petId}")
+    public void updatePet(@RequestBody Pet pet,
+    		@PathVariable) {
+    	petService.updatePet()
+    }
+    
+    @GetMapping("/findByStatus")
+    public List<Pet> findByStatus(@RequestParam String status) {
+        // PetService を使用してステータスに基づいてペットを検索するロジック
+    }
 
+    @GetMapping("/findByTags")
+    public List<Pet> findByTags(@RequestParam List<String> tags) {
+        // PetService を使用してタグに基づいてペットを検索するロジック
+    }
+    
+    @DeleteMapping("/{petId}")
+    public void deletePet(@PathVariable Long petId) {
+        // PetService を使用して特定の ID のペットを削除するロジック
+    }
 }
