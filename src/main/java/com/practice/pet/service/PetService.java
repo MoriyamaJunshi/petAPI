@@ -10,4 +10,14 @@ public class PetService {
 	public List<Pet> getAllPets(){
 		return getAllPets();
 	}
+	
+	public void addPet(Pet pet) {
+		List<Pet> getAllPets = null;
+		getAllPets.add(pet);
+	}
+
+	public void addPet1(Pet pet) {
+		// TODO 自動生成されたメソッド・スタブ
+		
+	}
 }
