@@ -62,6 +62,11 @@ public class Pet {
 	public void setStatus(String status) {
 		this.status = status;
 	}
+
+	public Pet orElseThrow(Object object) {
+		// TODO 自動生成されたメソッド・スタブ
+		return null;
+	}
     
     
 }
