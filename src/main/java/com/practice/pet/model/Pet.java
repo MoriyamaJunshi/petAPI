@@ -63,10 +63,6 @@ public class Pet {
 		this.status = status;
 	}
 
-	public Pet orElseThrow(Object object) {
-		// TODO 自動生成されたメソッド・スタブ
-		return null;
-	}
-    
+
     
 }

@@ -3,6 +3,7 @@ package com.practice.pet.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -25,7 +26,6 @@ public class PetController {
 
     @GetMapping
     public List<Pet> getAllPets() {
-        // PetService を使用して全てのペットを取得
     	return getAllPets();
     }
     
@@ -51,6 +51,12 @@ public class PetController {
     
     @GetMapping("/{petId}")
     public Pet getPetById(@PathVariable Long petId) {
-  	return petService.getPetById(petId);
+  	    return petService.getPetById(petId);
     }
+    
+    @PostMapping("/{petId}")
+    public ResponseEntity<Pet> addPetById(@PathVariable Long petId, @RequestBody Pet pet) {
+        return ResponseEntity.status(HttpStatus.CREATED).body(petService.addPetById(petId, pet));
+    }
+
 }

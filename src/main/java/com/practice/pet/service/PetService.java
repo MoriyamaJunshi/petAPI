@@ -39,4 +39,12 @@ public class PetService {
         return petRepository.findById(petId)
                 .orElseThrow(() -> new RuntimeException("Pet not found with id " + petId));
     }
+    
+    public Pet addPetById(Long petId, Pet pet) {
+        if (petRepository.findById(petId).isPresent()) {
+            throw new RuntimeException("PetId: " + petId + "は既に存在します。");
+        }
+        pet.setId(petId);
+        return petRepository.save(pet);
+    }
 }
