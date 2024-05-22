@@ -47,4 +47,8 @@ public class PetService {
         pet.setId(petId);
         return petRepository.save(pet);
     }
+    
+    public void deletePetById(Long petId) {
+        petRepository.deleteById(petId);
+    }
 }

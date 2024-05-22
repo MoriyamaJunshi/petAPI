@@ -13,4 +13,5 @@ public interface PetRepository {
 	Pet save(Pet pet);
 	List<Pet> findByStatus(String status);
 	List<Pet> findByTags(String[] status);
+	void deleteById(Long id);
 }

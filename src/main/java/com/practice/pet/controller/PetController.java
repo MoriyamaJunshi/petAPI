@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -58,5 +59,12 @@ public class PetController {
     public ResponseEntity<Pet> addPetById(@PathVariable Long petId, @RequestBody Pet pet) {
         return ResponseEntity.status(HttpStatus.CREATED).body(petService.addPetById(petId, pet));
     }
+    
+    @DeleteMapping("/{petId}")
+    public ResponseEntity<Void> deletePetById(@PathVariable Long petId) {
+        petService.deletePetById(petId);
+        return ResponseEntity.noContent().build();
+    }
+
 
 }
