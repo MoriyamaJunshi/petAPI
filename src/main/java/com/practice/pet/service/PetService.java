@@ -17,11 +17,6 @@ public class PetService {
 	public List<Pet> getAllPets(){
 		return petRepository.findAll();
 	}
-	
-    public Pet getPetById(Long petId) {
-        return petRepository.findById(petId)
-                .orElseThrow(() -> new RuntimeException("Pet not found with id " + petId));
-    }
     
     public void addPet(Pet pet) {
     	petRepository.save(pet);
@@ -38,5 +33,10 @@ public class PetService {
     public List<Pet> findByTags(String tags){
     	String[] tagArray = tags.split(",\\s*");
     	return petRepository.findByTags(tagArray);
+    }
+    
+    public Pet getPetById(Long petId) {
+        return petRepository.findById(petId)
+                .orElseThrow(() -> new RuntimeException("Pet not found with id " + petId));
     }
 }
