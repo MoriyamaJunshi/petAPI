@@ -9,7 +9,7 @@ import com.practice.pet.model.Pet;
 @Repository
 public interface PetRepository {
 	List<Pet> findAll();
-	Pet findById(Long id);
+	Pet findById(Pet pet);
 	Pet save(Pet pet);
 	List<Pet> findByStatus(String status);
 	List<Pet> findByTags(String[] status);

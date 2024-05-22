@@ -23,7 +23,9 @@ public class PetService {
     }
     
     public void updatePet(Pet pet) {
-    	petRepository.save(pet);
+    	if(petRepository.findById(pet).get() != null) {
+        	petRepository.save(pet);	
+    	}
     }
     
     public List<Pet> findByStatus(String status){
@@ -36,8 +38,7 @@ public class PetService {
     }
     
     public Pet getPetById(Long petId) {
-        return petRepository.findById(petId)
-                .orElseThrow(() -> new RuntimeException("PetId:" + petId + "が見つかりません。"));
+        return petRepository.findById(petId);
     }
     
     public Pet addPetById(Long petId, Pet pet) {
