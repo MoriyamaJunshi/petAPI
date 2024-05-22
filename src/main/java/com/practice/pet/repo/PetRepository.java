@@ -10,5 +10,5 @@ import com.practice.pet.model.Pet;
 public interface PetRepository {
 	List<Pet> findAll();
 	Pet findById(Long id);
-
+	void save(Pet pet);
 }

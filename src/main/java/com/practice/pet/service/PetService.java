@@ -22,4 +22,8 @@ public class PetService {
         return petRepository.findById(petId)
                 .orElseThrow(() -> new RuntimeException("Pet not found with id " + petId));
     }
+    
+    public void addPet(Pet pet) {
+    	petRepository.save(pet);
+    }
 }
