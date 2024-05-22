@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.practice.pet.exception.PetNotFoundException;
 import com.practice.pet.model.Pet;
 import com.practice.pet.service.PetService;
 
@@ -51,8 +52,8 @@ public class PetController {
     }
     
     @GetMapping("/{petId}")
-    public Pet getPetById(@PathVariable Long petId) {
-  	    return petService.getPetById(petId);
+    public Pet getPetById(@PathVariable("petId") Long petId) {
+  	    return petService.getPetById(petId).orElseThrow(() -> new PetNotFoundException(petId));
     }
     
     @PostMapping("/{petId}")
