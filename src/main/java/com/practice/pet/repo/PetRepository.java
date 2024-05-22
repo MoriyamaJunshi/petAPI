@@ -11,4 +11,5 @@ public interface PetRepository {
 	List<Pet> findAll();
 	Pet findById(Long id);
 	void save(Pet pet);
+	List<Pet> findByStatus(String status);
 }

@@ -30,4 +30,8 @@ public class PetService {
     public void updatePet(Pet pet) {
     	petRepository.save(pet);
     }
+    
+    public List<Pet> findByStatus(String status){
+    	return petRepository.findByStatus(status);
+    }
 }
