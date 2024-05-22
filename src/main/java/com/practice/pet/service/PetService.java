@@ -26,4 +26,8 @@ public class PetService {
     public void addPet(Pet pet) {
     	petRepository.save(pet);
     }
+    
+    public void updatePet(Pet pet) {
+    	petRepository.save(pet);
+    }
 }
