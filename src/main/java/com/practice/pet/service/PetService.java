@@ -34,4 +34,9 @@ public class PetService {
     public List<Pet> findByStatus(String status){
     	return petRepository.findByStatus(status);
     }
+    
+    public List<Pet> findByTags(String tags){
+    	String[] tagArray = tags.split(",\\s*");
+    	return petRepository.findByTags(tagArray);
+    }
 }
