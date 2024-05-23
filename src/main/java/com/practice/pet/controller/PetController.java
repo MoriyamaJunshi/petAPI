@@ -53,6 +53,7 @@ public class PetController {
     
     @GetMapping("/{petId}")
     public Pet getPetById(@PathVariable("petId") Long petId) {
+    	//メソッド orElseThrow(() -> {}) は型 Pet で未定義です
   	    return petService.getPetById(petId).orElseThrow(() -> new PetNotFoundException(petId));
     }
     

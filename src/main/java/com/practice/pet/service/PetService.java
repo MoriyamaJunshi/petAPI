@@ -23,6 +23,7 @@ public class PetService {
     }
     
     public void updatePet(Pet pet) {
+    	//メソッド get() は型 Pet で未定義です
     	if(petRepository.findById(pet).get() != null) {
         	petRepository.save(pet);	
     	}
@@ -38,10 +39,12 @@ public class PetService {
     }
     
     public Pet getPetById(Long petId) {
+    	//型 PetRepository のメソッド findById(Pet) は引数 (Long) に適用できません
         return petRepository.findById(petId);
     }
     
     public Pet addPetById(Long petId, Pet pet) {
+    	//型 PetRepository のメソッド findById(Pet) は引数 (Long) に適用できません
         if (petRepository.findById(petId).isPresent()) {
             throw new RuntimeException("PetId: " + petId + "は既に存在します。");
         }
